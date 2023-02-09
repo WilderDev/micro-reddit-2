@@ -1,0 +1,23 @@
+<h1><%= @post.title %></h1>
+
+<p>Posted in: <%= link_to @post.community.name, community_path(@post.community) %></p>
+
+<p>Posted by: <%= @post.author.username %></p>
+
+<p><%= @post.content %></p>
+
+<h2>Comments</h2>
+
+<% @post.comments.each do |comment| %>
+
+<p><%= comment.message %></p>
+
+<p>Posted by: <%= comment.user.username %></p>
+
+<% end %>
+
+<div>
+
+<%= link_to "Back to All Posts", posts_path %>
+
+</div>

@@ -1,0 +1,22 @@
+<h1>Create New Community</h1>
+
+<% if @community.errors.any? %>
+	<div id="error_explanation">
+		<h2><%= pluralize(@community.errors.count, "error") %> prohibited this community from being saved:</h2>
+
+		<ul style="color: crimson">
+		<% @community.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+		<% end %>
+		</ul>
+	</div>
+<% end %>
+
+<%= form_for @community do |f| %>
+	<%= f.hidden_field :creator_id, value: session[:user_id] %>
+
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+
+	<%= f.submit "Create Community" %>
+<% end %>

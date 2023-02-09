@@ -1,0 +1,25 @@
+<h1>Create New Post</h1>
+
+<%# Errors %>
+<% if @post.errors.any? %>
+  <ul>
+    <% @post.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for @post do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :community_id %>
+  <%= f.collection_select :community_id, Community.all, :id, :name %>
+
+  <%= f.hidden_field :author_id, value: session[:user_id] %>
+
+  <%= f.label :content %>
+  <%= f.text_area :content %>
+
+  <%= f.submit %>
+<% end %>

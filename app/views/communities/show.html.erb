@@ -1,1 +1,17 @@
 <h1>Welcome to the <%= @community.name %> Community!</h1>
+
+<p>Created by: <%= @community.creator.username %></p>
+
+<h2>Posts</h2>
+
+<% @community.posts.each do |post| %>
+  <%= link_to post.title, post_path(post) %>
+<% end %>
+
+<div>
+<%= link_to "Create New Post", new_post_path %>
+
+<%= link_to "Back to All Communities", communities_path %>
+
+<%= link_to "Back to Home", root_path %>
+</div>

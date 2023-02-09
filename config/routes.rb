@@ -3,6 +3,6 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create, :show]
   resources :communities, only: [:index, :new, :create, :show]
-  resources :posts
+  resources :posts, only: [:index, :new, :create, :show]
   resources :comments, only: [:create]
 end

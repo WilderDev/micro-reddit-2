@@ -25,3 +25,13 @@
 
 <%= link_to "View All Communities", communities_path %>
 </div>
+
+<h2>Your Feed</h2>
+
+<% @user.feed.each do |post| %>
+  <%= link_to post.title, post_path(post) %>
+<% end %>
+
+<div>
+<%= link_to "Back to All Posts", posts_path %>
+</div>

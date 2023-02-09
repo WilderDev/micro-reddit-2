@@ -1,0 +1,7 @@
+<h1>All Communities</h1>
+
+<% @communities.each do |com| %>
+<h2>
+	<%= link_to com.name, community_path(com) %>
+</h2>
+<% end %>

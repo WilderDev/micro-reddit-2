@@ -2,16 +2,22 @@
 
 <h2>Your Posts</h2>
 
-TSK
+<% @user.posts.each do |post| %>
+  <%= link_to post.title, post_path(post) %>
+<% end %>
+
+<%= link_to "Create New Post", new_post_path %>
 
 <h2>Your Comments</h2>
 
-TSK
+<% @user.comments.each do |comment| %>
+  <%= link_to comment.message, post_path(comment.post) %>
+<% end %>
 
 <h2>Your Communities</h2>
 
-TSK
+<% @user.communities.each do |community| %>
+  <%= link_to community.name, community_path(community) %>
+<% end %>
 
-<h2>Your Feed</h2>
-
-TSK
+<%= link_to "Create New Community", new_community_path %>
